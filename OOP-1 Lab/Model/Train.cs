@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 namespace OOP_1_Lab.Model
 {
-    class Auto : Transport
+    class Train: Transport
     {
         public enum Types
         {
-            Car,
-            Truck,
-            Bus,
-            Minivan,
-            Trolleybus
+            Airliner,
+            CargoPlane
         }
 
-        public Auto(string model, int carryingCapacity, int peopleCapacity, Auto.Types type) : base(model, carryingCapacity, peopleCapacity)
+        public Train(string model, int carryingCapacity, int peopleCapacity, Train.Types type) : base(model, carryingCapacity, peopleCapacity)
         {
             Type = type;
         }

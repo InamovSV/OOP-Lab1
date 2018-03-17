@@ -58,5 +58,6 @@ namespace OOP_1_Lab.Model
             Region = region;
         }
 
+
     }
 }

@@ -7,36 +7,71 @@
       <FileName>Model\Base.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="OOP_1_Lab.Model.Transport">
+  <Class Name="OOP_1_Lab.Model.Transport" Collapsed="true">
     <Position X="3" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAEAAEAAAAAAAAAAgAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABEAQkAAAAAAAAAAgAAAAAgAAAAAAAA=</HashCode>
       <FileName>Model\Transport.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Route" />
       <Property Name="Driver" />
+      <Property Name="Route" />
     </ShowAsAssociation>
   </Class>
   <Class Name="OOP_1_Lab.Model.TransportRoute" Collapsed="true">
     <Position X="5.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAABAACAAAAAAAAA=</HashCode>
+      <HashCode>AAABAAQAAAAAAAAABAAAAAAAAAAAAABAgCAAAAAAIAA=</HashCode>
       <FileName>Model\TransportRoute.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOP_1_Lab.Model.Stop" Collapsed="true">
     <Position X="7.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAACgAAAAAAAAEAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Stop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOP_1_Lab.Model.Driver" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAEAAAAAAAAACAAEAAAAAAAAAAAAAAAAAAAAAQAg=</HashCode>
       <FileName>Model\Driver.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_1_Lab.Model.Auto" Collapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="OOP_1_Lab.Model.Auto.Types" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Auto.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAEAAAUAQAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Auto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_1_Lab.Model.Plane" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAEAAAUAQAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Plane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_1_Lab.Model.Ship" Collapsed="true">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAEAAAUAQAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_1_Lab.Model.Train" Collapsed="true">
+    <Position X="4.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAEAAAUAQAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Train.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

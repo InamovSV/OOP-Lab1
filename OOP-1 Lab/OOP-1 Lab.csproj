@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="Model\Auto.cs" />
     <Compile Include="Model\Driver.cs" />
+    <Compile Include="Model\Plane.cs" />
+    <Compile Include="Model\Ship.cs" />
+    <Compile Include="Model\Train.cs" />
     <Compile Include="Model\TransportRoute.cs" />
     <Compile Include="Model\Stop.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />

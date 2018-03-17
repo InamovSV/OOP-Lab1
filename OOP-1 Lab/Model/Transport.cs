@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
+
 
 namespace OOP_1_Lab.Model
 {
     abstract class Transport : Base<Transport>
     {
-        public Transport()
+        public Transport(string model, int carryingCapacity, int peopleCapacity, Driver driver = null, TransportRoute route = null)
         {
-
+            Model = model;
+            CarryingCapacity = carryingCapacity;
+            PeopleCapacity = peopleCapacity;
+            Driver = driver;
         }
+
         string _model;
+        Driver _driver;
+
         public string Model
         {
             get
@@ -27,10 +29,19 @@ namespace OOP_1_Lab.Model
                     _model = value;
             }
         }
+        
+        public Driver Driver
+        {
+            get
+            { return _driver; }
+            set
+            {
+                if (value != null)
+                    _driver = value;
+            }
+        }
 
         public TransportRoute Route { get; set; }
-
-        public Driver Driver { get; set; }
 
         abstract public int CarryingCapacity { get; set; }
 
