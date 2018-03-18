@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="OOP_1_Lab.Model.Transport" Collapsed="true">
-    <Position X="3" Y="1.75" Width="1.5" />
+    <Position X="0.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABEAQkAAAAAAAAAAgAAAAAgAAAAAAAA=</HashCode>
       <FileName>Model\Transport.cs</FileName>
@@ -19,35 +19,29 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="OOP_1_Lab.Model.TransportRoute" Collapsed="true">
-    <Position X="5.25" Y="1.75" Width="1.5" />
+    <Position X="5.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAQAAAAAAAAABAAAAAAAAAAAAABAgCAAAAAAIAA=</HashCode>
+      <HashCode>AAIBAAQAQAAAABAEjAAQBAAAAAAAAIBEgCAAAAAAIAA=</HashCode>
       <FileName>Model\TransportRoute.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="OOP_1_Lab.Model.Stop" Collapsed="true">
     <Position X="7.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAACgAAAAAAAAEAAAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAACgAAAAAAEgEAAAAQAAAIAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Stop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOP_1_Lab.Model.Driver" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="3.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAEAAAAAAAAACAAEAAAAAAAAAAAAAAAAAAAAAQAg=</HashCode>
+      <HashCode>AAEAAEAAAAAAAAACAAEAAAQAAAAAgAAAAAAAAAAAQAg=</HashCode>
       <FileName>Model\Driver.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="OOP_1_Lab.Model.Auto" Collapsed="true">
     <Position X="6.75" Y="3.25" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="OOP_1_Lab.Model.Auto.Types" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Model\Auto.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAABAAAAEAAAUAQAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Model\Auto.cs</FileName>

@@ -11,12 +11,14 @@ namespace OOP_1_Lab.Model
         string _firstName;
         string _lastName;
         int _experience;
+        List<Transport> _transport;
 
         public Driver(string firstName, string lastName, int experience)
         {
             FirstName = firstName;
             LastName = lastName;
             Experience = experience;
+            _transport = new List<Transport>();
         }
 
         public string FirstName
@@ -58,6 +60,14 @@ namespace OOP_1_Lab.Model
                 if (value >= 0 && value < 100)
                     _experience = value;
                 else throw new ArgumentException();
+            }
+        }
+
+        public List<Transport> Transport
+        {
+            get
+            {
+                return _transport;
             }
         }
     }

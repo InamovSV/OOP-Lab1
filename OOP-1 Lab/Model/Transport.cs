@@ -47,7 +47,6 @@ namespace OOP_1_Lab.Model
 
         abstract public int PeopleCapacity { get; set; }
 
-        
         //public static List<Transport> GetTransportsWithOneType(Transport.Types type)
         //{
         //    List<Transport> res = new List<Transport>();

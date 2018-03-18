@@ -58,6 +58,19 @@ namespace OOP_1_Lab.Model
             Region = region;
         }
 
+        public override string ToString()
+        {
+            return string.Format("Name: {0}\nCountry: {1}\nRegion: {2}", Name, Country, Region);
+        }
 
+        public override bool Equals(object obj)
+        {
+            return this.ToString() == obj.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
+        }
     }
 }

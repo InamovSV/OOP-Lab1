@@ -12,8 +12,7 @@ namespace OOP_1_Lab.ViewModel
         
         public void Method()
         {
-            Auto a = new Auto();
-            a.Route = new TransportRoute(new LinkedList<Stop>(), "d", 1);
+            
             //string[] arr =  (string[])Enum.GetValues(typeof(Auto.Types));
         }
     }
