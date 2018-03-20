@@ -3,10 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OOP_1_Lab"
+        xmlns:local="clr-namespace:OOP_1_Lab.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <local:MainWindowViewModel x:Key="viewModel"></local:MainWindowViewModel>
+    </Window.Resources>
+
+    <Grid DataContext="{Binding Source={StaticResource viewModel}}">
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="184,58,0,0" VerticalAlignment="Top" Width="75"
+                Command="{Binding AddClient}"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="184,103,0,0" TextWrapping="Wrap" 
+                   Text="{Binding Prop, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

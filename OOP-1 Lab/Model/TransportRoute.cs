@@ -31,7 +31,7 @@ namespace OOP_1_Lab.Model
             Distance = distance;
             Stops = stops;
         }
-
+        
         public Stop this[int index]
         {
             get

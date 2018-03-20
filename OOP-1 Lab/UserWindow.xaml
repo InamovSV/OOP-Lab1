@@ -1,0 +1,21 @@
+﻿<Window x:Class="OOP_1_Lab.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOP_1_Lab.ViewModel"
+        mc:Ignorable="d"
+        Title="User" Height="300" Width="300">
+    
+    <Window.Resources>
+        <local:UserViewModel x:Key="viewModel"></local:UserViewModel>
+    </Window.Resources>
+
+    <Window.DataContext>
+        <Binding Path="Child" Source="{StaticResource viewModel}" />
+    </Window.DataContext>
+
+    <Grid>
+        <TextBlock Text="{Binding TextForWindow}"/>
+    </Grid>
+</Window>

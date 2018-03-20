@@ -1,1 +1,30 @@
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\OOP-1 Lab.exe.config
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\OOP-1 Lab.exe
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\OOP-1 Lab.pdb
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP-1 Lab.csprojResolveAssemblyReference.cache
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\MainWindow.g.cs
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\App.g.cs
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP-1 Lab_MarkupCompile.cache
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP-1 Lab_MarkupCompile.lref
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\MainWindow.baml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP-1 Lab.g.resources
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP_1_Lab.Properties.Resources.resources
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP-1 Lab.csproj.GenerateResource.Cache
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP-1 Lab.exe
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\OOP-1 Lab.pdb
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\CommonServiceLocator.dll
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.dll
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\System.Windows.Interactivity.dll
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.xml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\UserWindow.g.cs
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\UserWindow.baml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.WPF45.dll
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.WPF45.xml

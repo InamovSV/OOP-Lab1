@@ -11,11 +11,12 @@ namespace OOP_1_Lab.Model
             Model = model;
             CarryingCapacity = carryingCapacity;
             PeopleCapacity = peopleCapacity;
-            Driver = driver;
+            _driver = new List<Driver>();
+            Drivers.Add(driver);
         }
 
         string _model;
-        Driver _driver;
+        List<Driver> _driver;
 
         public string Model
         {
@@ -30,15 +31,10 @@ namespace OOP_1_Lab.Model
             }
         }
         
-        public Driver Driver
+        public List<Driver> Drivers
         {
             get
             { return _driver; }
-            set
-            {
-                if (value != null)
-                    _driver = value;
-            }
         }
 
         public TransportRoute Route { get; set; }
@@ -46,6 +42,8 @@ namespace OOP_1_Lab.Model
         abstract public int CarryingCapacity { get; set; }
 
         abstract public int PeopleCapacity { get; set; }
+
+        public bool IsOnWay { get; set; }
 
         //public static List<Transport> GetTransportsWithOneType(Transport.Types type)
         //{

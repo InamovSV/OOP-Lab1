@@ -63,7 +63,7 @@ namespace OOP_1_Lab.Model
             }
         }
 
-        public List<Transport> Transport
+        public List<Transport> Transports
         {
             get
             {
