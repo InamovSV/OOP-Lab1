@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using GalaSoft.MvvmLight;
+using OOP_1_Lab.ViewModel;
 
 namespace OOP_1_Lab
 {
@@ -13,5 +15,23 @@ namespace OOP_1_Lab
     /// </summary>
     public partial class App : Application
     {
+        public static AdminViewModel AdminViewModel;
+        public static MainViewModel MainWindowViewModel;
+        App()
+        {
+            MainWindowViewModel = new MainViewModel();
+            AdminViewModel = new AdminViewModel();
+        }
+        System.Threading.Mutex mutex;
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            bool createdNew;
+            string mutName = "Приложение";
+            mutex = new System.Threading.Mutex(true, mutName, out createdNew);
+            if (!createdNew)
+            {
+                this.Shutdown();
+            }
+        }
     }
 }

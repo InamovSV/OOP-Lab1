@@ -79,20 +79,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MessageListener.cs" />
     <Compile Include="Model\Auto.cs" />
     <Compile Include="Model\Driver.cs" />
-    <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\LogisticSystem.cs" />
     <Compile Include="Model\Plane.cs" />
     <Compile Include="Model\Ship.cs" />
     <Compile Include="Model\Train.cs" />
     <Compile Include="Model\TransportRoute.cs" />
     <Compile Include="Model\Stop.cs" />
-    <Compile Include="UserWindow.xaml.cs">
-      <DependentUpon>UserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="ViewModel\DriverViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,10 +104,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Base.cs" />

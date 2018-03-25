@@ -1,26 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 
 namespace OOP_1_Lab.Model
 {
-    class Driver : Base<Driver>
+    public class Driver : User
     {
         string _firstName;
         string _lastName;
         int _experience;
-        List<Transport> _transport;
+        int _earnings;
+        string _phoneNumber;
+        string _login;
+        string _password;
+        ObservableCollection<Transport> _transport;
+        ObservableCollection<TransportRoute> _historyOfRouts;
 
-        public Driver(string firstName, string lastName, int experience)
+        public Driver(string firstName, string lastName, string login, string password)
         {
             FirstName = firstName;
             LastName = lastName;
-            Experience = experience;
-            _transport = new List<Transport>();
+            Experience = 0;
+            Transports = new ObservableCollection<Transport>();
         }
-
+        #region Properties
         public string FirstName
         {
             get
@@ -63,12 +71,87 @@ namespace OOP_1_Lab.Model
             }
         }
 
-        public List<Transport> Transports
+        public ObservableCollection<Transport> Transports
         {
             get
             {
                 return _transport;
             }
+            private set
+            {
+                _transport = value;
+            }
         }
+
+        public int Earnings
+        {
+            get
+            {
+                return _earnings;
+            }
+            set
+            {
+                _earnings = value;
+            }
+        }
+
+        public string PhoneNumber
+        {
+            get
+            {
+                return _phoneNumber;
+            }
+
+            set
+            {
+                _phoneNumber = value;
+            }
+        }
+
+        public ObservableCollection<TransportRoute> HistoryOfRouts
+        {
+            get
+            {
+                return _historyOfRouts;
+            }
+
+            set
+            {
+                _historyOfRouts = value;
+                ++Experience;
+            }
+        }
+
+        public override string Login
+        {
+            get
+            {
+                return _login;
+            }
+
+            set
+            {
+                _login = value;
+            }
+        }
+
+        public override string Password
+        {
+            get
+            {
+                return _password;
+            }
+
+            set
+            {
+                if (!(new Regex(@"@c$").IsMatch(value)))
+                    _password = value;
+                else
+                    throw new ArgumentException("Invalid term in the expression");
+            }
+        }
+
+        #endregion
+
     }
 }

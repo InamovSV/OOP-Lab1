@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Collections.ObjectModel;
 
 namespace OOP_1_Lab.Model
 {
-    abstract class Transport : Base<Transport>
+    public abstract class Transport : Base<Transport>
     {
-        public Transport(string model, int carryingCapacity, int peopleCapacity, Driver driver = null, TransportRoute route = null)
+        public Transport(string model, int carryingCapacity, int peopleCapacity, Driver driver = null)
         {
             Model = model;
             CarryingCapacity = carryingCapacity;
             PeopleCapacity = peopleCapacity;
-            _driver = new List<Driver>();
+            _drivers = new ObservableCollection<Driver>();
             Drivers.Add(driver);
         }
 
         string _model;
-        List<Driver> _driver;
+        ObservableCollection<Driver> _drivers;
 
         public string Model
         {
@@ -31,13 +31,15 @@ namespace OOP_1_Lab.Model
             }
         }
         
-        public List<Driver> Drivers
+        public ObservableCollection<Driver> Drivers
         {
             get
-            { return _driver; }
+            {
+                return _drivers;
+            }
         }
 
-        public TransportRoute Route { get; set; }
+        //public TransportRoute Route { get; set; }
 
         abstract public int CarryingCapacity { get; set; }
 

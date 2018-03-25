@@ -4,7 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:OOP_1_Lab" xmlns:UiLogic="clr-namespace:OOP_1_Lab.ViewModel" 
-             xmlns:Desktop="clr-namespace:OOP_1_Lab" StartupUri="MainWindow.xaml">
+             xmlns:Desktop="clr-namespace:OOP_1_Lab" StartupUri="MainWindow.xaml" Startup="Application_Startup">
     <Application.Resources>
         
     </Application.Resources>

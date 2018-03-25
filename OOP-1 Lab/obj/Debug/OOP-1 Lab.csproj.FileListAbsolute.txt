@@ -24,7 +24,5 @@ D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Ex
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\UserWindow.g.cs
-D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\UserWindow.baml
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.WPF45.dll
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.WPF45.xml

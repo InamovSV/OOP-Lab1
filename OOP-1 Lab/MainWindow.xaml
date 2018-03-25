@@ -5,17 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_1_Lab.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="322" Width="379" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <local:MainWindowViewModel x:Key="viewModel"></local:MainWindowViewModel>
+        <local:MainViewModel x:Key="loginViewModel"></local:MainViewModel>
+        <local:AdminViewModel x:Key="adminVM"></local:AdminViewModel>
+        <local:DriverViewModel x:Key="driverVm"></local:DriverViewModel>
     </Window.Resources>
-
-    <Grid DataContext="{Binding Source={StaticResource viewModel}}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="184,58,0,0" VerticalAlignment="Top" Width="75"
-                Command="{Binding AddClient}"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="184,103,0,0" TextWrapping="Wrap" 
-                   Text="{Binding Prop, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-
+    <Grid Name="mainGrid" Margin="0,0,2,0">
+        <StackPanel Margin="136,56,126,63" Orientation="Vertical" DataContext="{Binding Source={StaticResource loginViewModel}}" 
+                    Visibility="Hidden">
+            <Label x:Name="lb1" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="tbLogin" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="97"
+                Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label x:Name="lb2" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <PasswordBox x:Name="passwordBox" VerticalAlignment="Top" BorderBrush="Gray" HorizontalAlignment="Left" Width="97"/>
+            <Button x:Name="btnSignIn" Content="Sign In" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97"
+                    Command="{Binding SignIn}"/>
+            <Label x:Name="lb3" Content="New customer?" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Button x:Name="btnSignUp" Content="Sign up" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97"/>
+        </StackPanel>
+        <GroupBox x:Name="gbAdmin" DataContext="{Binding Source={StaticResource adminVM}}" 
+                  Visibility="Visible">
+            <Grid>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" 
+                VerticalAlignment="Top" Width="65"><InlineUIContainer>
+                <TextBlock x:Name="tbAdminLogin" TextWrapping="Wrap" Text="{Binding CurrentAdmin.Login}"/>
+            </InlineUIContainer></TextBlock>
+                <ListBox x:Name="lbTr" HorizontalAlignment="Left" Height="144" Margin="10,76,0,0" VerticalAlignment="Top" Width="85"
+                         ItemsSource="{Binding Transports}" SelectedItem="{Binding SelectTransport}"/>
+                <ListBox x:Name="lbDr" HorizontalAlignment="Left" Height="144" Margin="100,76,0,0" VerticalAlignment="Top" Width="85"
+                         ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectDriver}"/>
+                <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="100,49,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

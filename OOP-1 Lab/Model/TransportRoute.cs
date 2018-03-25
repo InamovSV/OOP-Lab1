@@ -11,27 +11,35 @@ namespace OOP_1_Lab.Model
     {
         int? _distance;
         string _targetOfRoute;
+        int _cost;
+        bool _isConfirm;
+        Driver _performer;
+        bool _isStart;
+        bool _isEnd;
+        int _experienceLimit;
 
         public TransportRoute() : this(new List<Stop>(), null, null)
         {
         }
 
-        public TransportRoute(Stop startStop, Stop endStop, string targetOfRoute = null, int? distance = null)
+        public TransportRoute(Stop startStop, Stop endStop, string targetOfRoute = null, int? distance = null, int experienceLimit = 0)
         {
             Stops = new List<Stop>();
             Stops.Add(startStop);
             Stops.Add(endStop);
             TargetOfRoute = targetOfRoute;
             Distance = distance;
+            ExperienceLimit = experienceLimit;
         }
 
-        public TransportRoute(List<Stop> stops, string targetOfRoute = null, int? distance = null)
+        public TransportRoute(List<Stop> stops, string targetOfRoute = null, int? distance = null, int experienceLimit = 0)
         {
             TargetOfRoute = targetOfRoute;
             Distance = distance;
             Stops = stops;
+            ExperienceLimit = experienceLimit;
         }
-        
+
         public Stop this[int index]
         {
             get
@@ -52,6 +60,23 @@ namespace OOP_1_Lab.Model
             }
         }
 
+        #region Properties
+
+        public Driver Performer
+        {
+            get
+            {
+                return _performer;
+            }
+            set
+            {
+                if (value.Experience >= ExperienceLimit)
+                    _performer = value;
+                else
+                    throw new ArgumentException("The driver do not passed the limit of experience");
+            }
+        }
+
         public string TargetOfRoute
         {
             get
@@ -65,7 +90,8 @@ namespace OOP_1_Lab.Model
             }
         }
 
-        private List<Stop> Stops { get; set; }
+        //To Do Если маршрут не завершен - запретить мутатор
+        public List<Stop> Stops { get; set; }
 
         public Stop StartStop
         {
@@ -103,6 +129,85 @@ namespace OOP_1_Lab.Model
             }
         }
 
+        public int Cost
+        {
+            get
+            {
+                return _cost;
+            }
+            set
+            {
+                _cost = value;
+            }
+        }
+        //To Do продумать доступ к подтверждению
+        public bool IsConfirm
+        {
+            get
+            {
+                return _isConfirm;
+            }
+            set
+            {
+                if (value == true)
+                {
+                    IsEnd = false;
+                    IsStart = false;
+                }
+                _isConfirm = value;
+            }
+        }
+
+        public bool IsStart
+        {
+            get
+            {
+                return _isStart;
+            }
+
+            set
+            {
+                if (IsEnd && value == false)
+                    throw new ArgumentException("Do not right argument's logic");
+                else
+                    IsStart = value;
+            }
+        }
+
+        public bool IsEnd
+        {
+            get
+            {
+                return _isEnd;
+            }
+
+            set
+            {
+                if (!IsStart && value == true)
+                    throw new ArgumentException("Do not right argument's logic");
+                else
+                    _isEnd = value;
+
+            }
+        }
+
+        public int ExperienceLimit
+        {
+            get
+            {
+                return _experienceLimit;
+            }
+
+            set
+            {
+                _experienceLimit = value;
+            }
+        }
+
+
+        #endregion
+
+        #region Methods
         public void Add(Stop stop)
         {
             if (stop != null)
@@ -188,5 +293,7 @@ namespace OOP_1_Lab.Model
         {
             return ((IEnumerable<Stop>)Stops).GetEnumerator();
         }
+        #endregion
+
     }
 }
