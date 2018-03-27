@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_1_Lab.Model
 {
-    public abstract class User : Base<User>
+    public abstract class User //: Base<User>
     {
         //protected string _login;
         public abstract string Login { get; set; }

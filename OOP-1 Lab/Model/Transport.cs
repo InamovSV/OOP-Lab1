@@ -4,15 +4,15 @@ using System.Collections.ObjectModel;
 
 namespace OOP_1_Lab.Model
 {
-    public abstract class Transport : Base<Transport>
+    public abstract class Transport //: Base<Transport>
     {
-        public Transport(string model, int carryingCapacity, int peopleCapacity, Driver driver = null)
+        public Transport(string model, int carryingCapacity, int peopleCapacity)
         {
             Model = model;
             CarryingCapacity = carryingCapacity;
             PeopleCapacity = peopleCapacity;
             _drivers = new ObservableCollection<Driver>();
-            Drivers.Add(driver);
+            //LogisticSystem.Transports.Add(this);
         }
 
         string _model;

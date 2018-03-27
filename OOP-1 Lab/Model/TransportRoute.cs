@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP_1_Lab.Model
 {
-    public class TransportRoute : Base<TransportRoute>, IEnumerable<Stop>
+    public class TransportRoute : IEnumerable<Stop>
     {
         int? _distance;
         string _targetOfRoute;

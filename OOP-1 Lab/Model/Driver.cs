@@ -18,7 +18,7 @@ namespace OOP_1_Lab.Model
         string _phoneNumber;
         string _login;
         string _password;
-        ObservableCollection<Transport> _transport;
+        ObservableCollection<Transport> _transports;
         ObservableCollection<TransportRoute> _historyOfRouts;
 
         public Driver(string firstName, string lastName, string login, string password)
@@ -26,8 +26,9 @@ namespace OOP_1_Lab.Model
             FirstName = firstName;
             LastName = lastName;
             Experience = 0;
-            Transports = new ObservableCollection<Transport>();
+            _transports = new ObservableCollection<Transport>();
         }
+
         #region Properties
         public string FirstName
         {
@@ -68,18 +69,6 @@ namespace OOP_1_Lab.Model
                 if (value >= 0 && value < 100)
                     _experience = value;
                 else throw new ArgumentException();
-            }
-        }
-
-        public ObservableCollection<Transport> Transports
-        {
-            get
-            {
-                return _transport;
-            }
-            private set
-            {
-                _transport = value;
             }
         }
 
@@ -153,5 +142,56 @@ namespace OOP_1_Lab.Model
 
         #endregion
 
+        public void AddTransport(Transport tr)
+        {
+            Transport tempTr;
+            try
+            {
+                tempTr = LogisticSystem.Transports.First((t) => t.Equals(tr));
+            }
+            catch (InvalidOperationException)
+            {
+                tempTr = null;
+            }
+            if (tempTr != null)
+            {
+                if (!tempTr.Drivers.Contains(this))
+                    tempTr.Drivers.Add(this);
+                if (!_transports.Contains(tr))
+                    _transports.Add(tempTr);
+            }
+            else
+            {
+                if (!tr.Drivers.Contains(this))
+                    tr.Drivers.Add(this);
+                LogisticSystem.Transports.Add(tr);
+                if (!_transports.Contains(tr))
+                    _transports.Add(tr);
+            }
+        }
+
+        public void RemoveTransport(Transport tr)
+        {
+            _transports.Remove(tr);
+            Driver temp;
+            try
+            {
+                temp = LogisticSystem.Transports.First((t) => tr == t).Drivers.First((d) => d == this);
+            }
+            catch (InvalidOperationException)
+            {
+                temp = null;
+            }
+            
+            if (temp != null)
+                LogisticSystem.Transports.First((t) => tr == t).Drivers.Remove(temp);
+            else
+                LogisticSystem.Transports.Remove(tr);
+        }
+
+        public ObservableCollection<Transport> GetTransports()
+        {
+            return _transports;
+        }
     }
 }

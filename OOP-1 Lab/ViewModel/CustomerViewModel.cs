@@ -12,15 +12,11 @@ using System.Collections.ObjectModel;
 
 namespace OOP_1_Lab.ViewModel
 {
-    public class AdminViewModel : ViewModelBase
+    public class CustomerViewModel : ViewModelBase
     {
-        public AdminViewModel()
+        public CustomerViewModel()
         {
-            AdminVisibility = Visibility.Hidden;
-            AddClient = new RelayCommand(() =>
-            {
-
-            });
+            CustomerVisibility = Visibility.Hidden;
         }
 
         public RelayCommand AddClient
@@ -28,16 +24,16 @@ namespace OOP_1_Lab.ViewModel
             get;
             private set;
         }
-        Customer _currentAdmin;
-        public Customer CurrentAdmin
+        Customer _currentCustomer;
+        public Customer CurrentCustomer
         {
             get
             {
-                return _currentAdmin;
+                return _currentCustomer;
             }
             set
             {
-                _currentAdmin = value;
+                _currentCustomer = value;
                 RaisePropertyChanged("CurrentAdmin");
             }
         }
@@ -48,11 +44,11 @@ namespace OOP_1_Lab.ViewModel
         {
             get
             {
-                return CurrentAdmin.Login;
+                return CurrentCustomer.Login;
             }
             set
             {
-                CurrentAdmin.Login = value;
+                CurrentCustomer.Login = value;
                 RaisePropertyChanged("Login");
             }
         }
@@ -68,16 +64,17 @@ namespace OOP_1_Lab.ViewModel
                 RaisePropertyChanged("Password");
             }
         }
-        Visibility _adminvisibility;
-        public Visibility AdminVisibility
+
+        Visibility _customerVisibility;
+        public Visibility CustomerVisibility
         {
             get
             {
-                return _adminvisibility;
+                return _customerVisibility;
             }
             set
             {
-                _adminvisibility = value;
+                _customerVisibility = value;
                 RaisePropertyChanged("AdminVisibility");
             }
         }
@@ -88,7 +85,7 @@ namespace OOP_1_Lab.ViewModel
             get
             {
                 if (_transports == null)
-                    _transports = CurrentAdmin.Transports;
+                    _transports = CurrentCustomer.Transports;
                 
                 return _transports;
             }

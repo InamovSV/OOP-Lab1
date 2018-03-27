@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace OOP_1_Lab.Model
 {
-    class Train: Transport
+    public class Train: Transport
     {
         public enum Types
         {
-            Airliner,
-            CargoPlane
+            PassTrain,
+            Electric,
+            FreightTrain
         }
 
         public Train(string model, int carryingCapacity, int peopleCapacity, Train.Types type) : base(model, carryingCapacity, peopleCapacity)
@@ -61,6 +62,21 @@ namespace OOP_1_Lab.Model
             {
                 _type = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Type: {0}\nModel: {1}\nPeopleCapacity: {2}\nCarryingCapacity: {3}", Type, Model, PeopleCapacity, CarryingCapacity);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj.ToString() == this.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
         }
     }
 }

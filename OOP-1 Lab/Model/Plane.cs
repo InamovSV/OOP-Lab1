@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_1_Lab.Model
 {
-    class Plane : Transport
+    public class Plane : Transport
     {
         public enum Types
         {
@@ -61,6 +61,21 @@ namespace OOP_1_Lab.Model
             {
                 _type = value;
             }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Type: {0}\nModel: {1}\nPeopleCapacity: {2}\nCarryingCapacity: {3}", Type, Model, PeopleCapacity, CarryingCapacity);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj.ToString() == this.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ToString().GetHashCode();
         }
     }
 }

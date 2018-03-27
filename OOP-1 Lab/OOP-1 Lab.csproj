@@ -89,7 +89,7 @@
     <Compile Include="Model\TransportRoute.cs" />
     <Compile Include="Model\Stop.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">

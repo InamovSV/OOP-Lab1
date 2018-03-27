@@ -9,12 +9,12 @@
 
     <Window.Resources>
         <local:MainViewModel x:Key="loginViewModel"></local:MainViewModel>
-        <local:AdminViewModel x:Key="adminVM"></local:AdminViewModel>
+        <local:CustomerViewModel x:Key="customerVM"></local:CustomerViewModel>
         <local:DriverViewModel x:Key="driverVm"></local:DriverViewModel>
     </Window.Resources>
     <Grid Name="mainGrid" Margin="0,0,2,0">
-        <StackPanel Margin="136,56,126,63" Orientation="Vertical" DataContext="{Binding Source={StaticResource loginViewModel}}" 
-                    Visibility="Hidden">
+        <StackPanel Margin="144,56,103,31" Orientation="Vertical" DataContext="{Binding Source={StaticResource loginViewModel}}" 
+                    Visibility="Visible">
             <Label x:Name="lb1" Content="Login" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBox x:Name="tbLogin" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="97"
                 Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
@@ -24,9 +24,13 @@
                     Command="{Binding SignIn}"/>
             <Label x:Name="lb3" Content="New customer?" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Button x:Name="btnSignUp" Content="Sign up" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97"/>
+            <Grid Height="42" HorizontalAlignment="Left" Width="110" Visibility="{Binding VisibilityChose}">
+                <Button x:Name="btnCustomer" Content="Customer" Height="25" Margin="0,10,0,7" HorizontalAlignment="Left" Width="59"/>
+                <Button x:Name="btnDriver" Content="Driver" Height="25" Margin="64,10,0,7" HorizontalAlignment="Left" Width="39"/>
+            </Grid>
         </StackPanel>
-        <GroupBox x:Name="gbAdmin" DataContext="{Binding Source={StaticResource adminVM}}" 
-                  Visibility="Visible">
+        <GroupBox x:Name="gbCustomer" DataContext="{Binding Source={StaticResource customerVM}}" 
+                  Visibility="Hidden">
             <Grid>
                 <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" 
                 VerticalAlignment="Top" Width="65"><InlineUIContainer>

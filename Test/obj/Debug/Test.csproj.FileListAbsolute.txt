@@ -1,0 +1,10 @@
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\bin\Debug\Test.exe.config
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\bin\Debug\Test.exe
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\bin\Debug\Test.pdb
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\bin\Debug\OOP-1 Lab.exe
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\bin\Debug\GalaSoft.MvvmLight.WPF45.dll
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\bin\Debug\OOP-1 Lab.pdb
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\bin\Debug\GalaSoft.MvvmLight.WPF45.xml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\obj\Debug\Test.exe
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\Test\obj\Debug\Test.pdb

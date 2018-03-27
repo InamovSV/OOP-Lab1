@@ -15,12 +15,14 @@ namespace OOP_1_Lab
     /// </summary>
     public partial class App : Application
     {
-        public static AdminViewModel AdminViewModel;
+        public static CustomerViewModel CustomerViewModel;
+        public static DriverViewModel DriverViewModel;
         public static MainViewModel MainWindowViewModel;
         App()
         {
             MainWindowViewModel = new MainViewModel();
-            AdminViewModel = new AdminViewModel();
+            CustomerViewModel = new CustomerViewModel();
+            DriverViewModel = new DriverViewModel();
         }
         System.Threading.Mutex mutex;
         private void Application_Startup(object sender, StartupEventArgs e)

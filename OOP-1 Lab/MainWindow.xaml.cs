@@ -27,7 +27,7 @@ namespace OOP_1_Lab
         {
             InitializeComponent();
             DataContext = App.MainWindowViewModel;
-            gbAdmin.DataContext = App.AdminViewModel;
+            gbCustomer.DataContext = App.CustomerViewModel;
             Application.Current.ShutdownMode = ShutdownMode.OnLastWindowClose;
         }
         

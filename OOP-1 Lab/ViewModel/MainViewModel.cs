@@ -7,12 +7,15 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using OOP_1_Lab.Model;
+using System.Text.RegularExpressions;
 
 namespace OOP_1_Lab.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
         string _login;
+        string _password;
+        string _pattern = @"@c$";
         public string Login
         {
             get
@@ -39,44 +42,54 @@ namespace OOP_1_Lab.ViewModel
                 RaisePropertyChanged("VisibilityLogin");
             }
         }
-        //Admin _admin;
-        //public Admin CurrrentAdmin
-        //{
-        //    get
-        //    {
-        //        return _admin;
-        //    }
-        //    set
-        //    {
-        //        _admin = value;
-        //        RaisePropertyChanged("Administator");
-        //    }
-        //}
 
-        //Driver _currentDriver;
-        //public Driver CurrentDriver
-        //{
-        //    get
-        //    {
-        //        return _currentDriver;
-        //    }
-        //    set
-        //    {
-        //        _currentDriver = value;
-        //        RaisePropertyChanged("CurrentDriver");
-        //    }
-        //}
+        Visibility _visibilityChose;
+        public Visibility VisibilityChose
+        {
+            get
+            {
+                return _visibilityChose;
+            }
+
+            set
+            {
+                _visibilityChose = value;
+                RaisePropertyChanged("VisibilityChose");
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return _password;
+            }
+
+            set
+            {
+                _password = value;
+            }
+        }
 
         RelayCommand _signIn;
         public RelayCommand SignIn
         {
             get
             {
-                return _signIn ?? new RelayCommand(() => 
+                return _signIn ?? new RelayCommand(() =>
                 {
-                    //App.AdminViewModel.CurrentAdmin = new Customer(Login);
-                    VisibilityLogin = Visibility.Hidden;
-                    App.AdminViewModel.AdminVisibility = Visibility.Visible;
+                    if (new Regex(_pattern).IsMatch(Login))
+                    {
+                        App.CustomerViewModel.CurrentCustomer = LogisticSystem.GetCustomer(Login, Password);
+                        VisibilityLogin = Visibility.Hidden;
+                        App.CustomerViewModel.CustomerVisibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        App.DriverViewModel.CurrentDriver = LogisticSystem.GetDriver(Login, Password);
+                        VisibilityLogin = Visibility.Hidden;
+                        App.DriverViewModel.DriverVisibility = Visibility.Visible;
+                    }
                 });
             }
             private set
@@ -84,5 +97,22 @@ namespace OOP_1_Lab.ViewModel
                 _signIn = value;
             }
         }
+
+        RelayCommand _signUp;
+        public RelayCommand SignUp
+        {
+            get
+            {
+                return _signUp ?? new RelayCommand(() =>
+                {
+                    
+                });
+            }
+            private set
+            {
+                _signIn = value;
+            }
+        }
+
     }
 }
