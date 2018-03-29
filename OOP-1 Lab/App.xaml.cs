@@ -18,11 +18,13 @@ namespace OOP_1_Lab
         public static CustomerViewModel CustomerViewModel;
         public static DriverViewModel DriverViewModel;
         public static MainViewModel MainWindowViewModel;
+        public static CustomerAdderViewModel CustomerAdderViewModel;
         App()
         {
             MainWindowViewModel = new MainViewModel();
             CustomerViewModel = new CustomerViewModel();
             DriverViewModel = new DriverViewModel();
+            CustomerAdderViewModel = new CustomerAdderViewModel();
         }
         System.Threading.Mutex mutex;
         private void Application_Startup(object sender, StartupEventArgs e)

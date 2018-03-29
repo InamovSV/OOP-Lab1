@@ -26,3 +26,7 @@ D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Pl
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.WPF45.dll
 D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\bin\Debug\GalaSoft.MvvmLight.WPF45.xml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\CustomerWindow.g.cs
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\CustomerWindow.baml
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\DriverWindow.g.cs
+D:\Documents\Projects\C#\OOP\OOP-1 Lab\OOP-1 Lab\obj\Debug\DriverWindow.baml

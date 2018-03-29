@@ -16,14 +16,9 @@ namespace OOP_1_Lab.ViewModel
     {
         public CustomerViewModel()
         {
-            CustomerVisibility = Visibility.Hidden;
-        }
 
-        public RelayCommand AddClient
-        {
-            get;
-            private set;
         }
+        #region Properties
         Customer _currentCustomer;
         public Customer CurrentCustomer
         {
@@ -34,48 +29,7 @@ namespace OOP_1_Lab.ViewModel
             set
             {
                 _currentCustomer = value;
-                RaisePropertyChanged("CurrentAdmin");
-            }
-        }
-        //Admin admin = new Admin();
-        string _login;
-        string _password;
-        public string Login
-        {
-            get
-            {
-                return CurrentCustomer.Login;
-            }
-            set
-            {
-                CurrentCustomer.Login = value;
-                RaisePropertyChanged("Login");
-            }
-        }
-        public string Password
-        {
-            get
-            {
-                return _password;
-            }
-            set
-            {
-                _password = value;
-                RaisePropertyChanged("Password");
-            }
-        }
-
-        Visibility _customerVisibility;
-        public Visibility CustomerVisibility
-        {
-            get
-            {
-                return _customerVisibility;
-            }
-            set
-            {
-                _customerVisibility = value;
-                RaisePropertyChanged("AdminVisibility");
+                RaisePropertyChanged("CurrentCustomer");
             }
         }
 
@@ -86,7 +40,7 @@ namespace OOP_1_Lab.ViewModel
             {
                 if (_transports == null)
                     _transports = CurrentCustomer.Transports;
-                
+
                 return _transports;
             }
         }
@@ -119,15 +73,66 @@ namespace OOP_1_Lab.ViewModel
             }
         }
 
-        ObservableCollection<Driver> _drivers;
-        public ObservableCollection<Driver> Drivers
+        TransportRoute _selectRoute;
+        public TransportRoute SelectRoute
         {
             get
             {
-                if (_drivers == null && SelectTransport != null)
-                    _drivers = SelectTransport.Drivers;
-                return _drivers;
+                return _selectRoute;
+            }
+
+            set
+            {
+                _selectRoute = value;
+                RaisePropertyChanged("SelectRoute");
+                RaisePropertyChanged("SelectRouteStatus");
             }
         }
+
+        string _selectRouteStatus;
+        public string SelectRouteStatus
+        {
+            get
+            {
+                if (SelectRoute.IsEnd)
+                {
+                    _selectRouteStatus = "Awaits confirmation";
+                }
+                else if(SelectRoute.IsStart && !SelectRoute.IsEnd)
+                {
+                    _selectRouteStatus = "On the way";
+                }
+                else
+                {
+                    _selectRouteStatus = "Free";
+                }
+                return _selectRouteStatus;
+            }
+
+            private set
+            {
+                _selectRouteStatus = value;
+                RaisePropertyChanged("SelectRouteStatus");
+            }
+        }
+        #endregion
+
+
+        #region Commands
+        RelayCommand _goOut;
+        public RelayCommand GoOut
+        {
+            get
+            {
+                if (_goOut == null)
+                    _goOut = new RelayCommand(() =>
+                    {
+                        CurrentCustomer = null;
+                    });
+                return _goOut;
+            }
+        }
+        #endregion
+ 
     }
 }

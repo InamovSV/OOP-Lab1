@@ -28,7 +28,7 @@ namespace OOP_1_Lab.ViewModel
             set
             {
                 _driverVisibility = value;
-                RaisePropertyChanged("AdminVisibility");
+                RaisePropertyChanged("DriverVisibility");
             }
         }
 

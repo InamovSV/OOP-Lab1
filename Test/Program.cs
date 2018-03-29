@@ -11,11 +11,14 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Driver dr = new Driver("1", "1", "1", "1");
-            dr.AddTransport(new Auto("1", 1, 1, Auto.Types.Car));
-            dr.AddTransport(new Train("2", 2, 2, Train.Types.FreightTrain));
-            Driver dr1 = new Driver("2", "2", "2", "2");
-            dr1.AddTransport(new Auto("1", 1, 1, Auto.Types.Car));
+            TransportRoute tr = new TransportRoute();
+            tr.Stops.Add(new Stop("das", "sd", "ds"));
+            tr.Stops.Add(new Stop("d", "s", "fsd"));
+            TransportRoute tr1 = new TransportRoute();
+            tr1.Stops.Add(new Stop("das", "sd", "ds"));
+            tr1.Stops.Add(new Stop("d", "s", "fsd"));
+
+            Console.WriteLine(tr.Equals(tr1));
 
             Console.ReadKey();
         }

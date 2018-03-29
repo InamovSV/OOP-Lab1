@@ -18,6 +18,7 @@ namespace OOP_1_Lab.Model
         string _phoneNumber;
         string _login;
         string _password;
+        TransportRoute _currentRoute;
         ObservableCollection<Transport> _transports;
         ObservableCollection<TransportRoute> _historyOfRouts;
 
@@ -25,6 +26,8 @@ namespace OOP_1_Lab.Model
         {
             FirstName = firstName;
             LastName = lastName;
+            Login = login;
+            Password = password;
             Experience = 0;
             _transports = new ObservableCollection<Transport>();
         }
@@ -120,7 +123,10 @@ namespace OOP_1_Lab.Model
 
             set
             {
-                _login = value;
+                if (!(new Regex(@"@c$").IsMatch(value)))
+                    _login = value;
+                else
+                    throw new ArgumentException("Invalid term in the expression");
             }
         }
 
@@ -133,10 +139,20 @@ namespace OOP_1_Lab.Model
 
             set
             {
-                if (!(new Regex(@"@c$").IsMatch(value)))
-                    _password = value;
-                else
-                    throw new ArgumentException("Invalid term in the expression");
+                _password = value;
+            }
+        }
+
+        public TransportRoute CurrentRoute
+        {
+            get
+            {
+                return _currentRoute;
+            }
+
+            set
+            {
+                _currentRoute = value;
             }
         }
 
@@ -192,6 +208,18 @@ namespace OOP_1_Lab.Model
         public ObservableCollection<Transport> GetTransports()
         {
             return _transports;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is User)
+                return Login == obj.ToString();
+            else throw new ArgumentException();
+        }
+
+        public override int GetHashCode()
+        {
+            return Login.GetHashCode();
         }
     }
 }

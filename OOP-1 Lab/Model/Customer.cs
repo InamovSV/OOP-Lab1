@@ -15,6 +15,7 @@ namespace OOP_1_Lab.Model
             Login = login;
             Password = password;
             Name = name;
+            Routs = new ObservableCollection<TransportRoute>();
         }
 
         //private ObservableCollection<Transport> _transports;
@@ -22,6 +23,7 @@ namespace OOP_1_Lab.Model
         private string _login;
         private string _password;
         private string _name;
+        private ObservableCollection<TransportRoute> _routs;
 
         public ObservableCollection<Transport> Transports
         {
@@ -50,6 +52,8 @@ namespace OOP_1_Lab.Model
             {
                 if (new Regex(@"@c$").IsMatch(value) && value.Length < 25)
                     _login = value;
+                else
+                    throw new ArgumentException("Invalid term in the expression");
             }
         }
 
@@ -62,8 +66,7 @@ namespace OOP_1_Lab.Model
 
             set
             {
-                if (value.Length < 25)
-                    _password = value;
+                _password = value;
             }
         }
 
@@ -81,7 +84,18 @@ namespace OOP_1_Lab.Model
             }
         }
 
-        //TO DO возврат клонированной коллекции
+        public ObservableCollection<TransportRoute> Routs
+        {
+            get
+            {
+                return _routs;
+            }
+
+            private set
+            {
+                _routs = value;
+            }
+        }
 
         public override bool Equals(object obj)
         {

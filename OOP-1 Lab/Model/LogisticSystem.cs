@@ -92,7 +92,7 @@ namespace OOP_1_Lab.Model
         #region Autorization
         public static void AddCustomer(string name, string login, string password)
         {
-            if (new Regex(@"@c$").IsMatch(password))
+            if (new Regex(@"@c$").IsMatch(login))
             {
                 bool isContains = false;
                 foreach (var item in Customers)
@@ -111,7 +111,7 @@ namespace OOP_1_Lab.Model
 
         public static void AddDriver(string firstName, string lastName, string login, string password)
         {
-            if (!(new Regex(@"@c$").IsMatch(password)))
+            if (!(new Regex(@"@c$").IsMatch(login)))
             {
                 bool isContains = false;
                 foreach (var item in Drivers)
@@ -162,6 +162,7 @@ namespace OOP_1_Lab.Model
         #endregion
 
         #region Mutate collection
+
         //public void Add(Driver dr)
         //{
         //    Drivers.Add(dr);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,27 +18,37 @@ namespace OOP_1_Lab.Model
         bool _isStart;
         bool _isEnd;
         int _experienceLimit;
+        Customer _owner;
 
-        public TransportRoute() : this(new List<Stop>(), null, null)
+        public TransportRoute() : this(null, new ObservableCollection<Stop>(), 0, null, null, 0)
         {
         }
 
-        public TransportRoute(Stop startStop, Stop endStop, string targetOfRoute = null, int? distance = null, int experienceLimit = 0)
+        public TransportRoute(Customer owner, Stop startStop, Stop endStop, int cost, string targetOfRoute = null, int? distance = null, int experienceLimit = 0)
         {
-            Stops = new List<Stop>();
+            Stops = new ObservableCollection<Stop>();
             Stops.Add(startStop);
             Stops.Add(endStop);
-            TargetOfRoute = targetOfRoute;
+            Cost = cost;
+            _targetOfRoute = targetOfRoute;
             Distance = distance;
             ExperienceLimit = experienceLimit;
+            Owner = owner;
+            LogisticSystem.TransportRouts.Add(this);
         }
 
-        public TransportRoute(List<Stop> stops, string targetOfRoute = null, int? distance = null, int experienceLimit = 0)
+        public TransportRoute(Customer owner, ObservableCollection<Stop> stops, int cost, string targetOfRoute = null, int? distance = null, int experienceLimit = 0)
         {
-            TargetOfRoute = targetOfRoute;
+            _targetOfRoute = targetOfRoute;
             Distance = distance;
-            Stops = stops;
+            if (stops.Count != 1)
+                Stops = stops;
+            else
+                throw new ArgumentException("Numbers of routes can't be 1");
+            Cost = cost;
             ExperienceLimit = experienceLimit;
+            Owner = owner;
+            LogisticSystem.TransportRouts.Add(this);
         }
 
         public Stop this[int index]
@@ -91,7 +102,7 @@ namespace OOP_1_Lab.Model
         }
 
         //To Do Если маршрут не завершен - запретить мутатор
-        public List<Stop> Stops { get; set; }
+        public ObservableCollection<Stop> Stops { get; set; }
 
         public Stop StartStop
         {
@@ -204,6 +215,19 @@ namespace OOP_1_Lab.Model
             }
         }
 
+        public Customer Owner
+        {
+            get
+            {
+                return _owner;
+            }
+
+            set
+            {
+                _owner = value;
+            }
+        }
+
 
         #endregion
 
@@ -222,47 +246,47 @@ namespace OOP_1_Lab.Model
 
         public Stop[] GetStopByCountry(string country)
         {
-            List<Stop> listRes;
+            ObservableCollection<Stop> ObservableCollectionRes;
             if (country != null)
             {
-                listRes = new List<Stop>();
+                ObservableCollectionRes = new ObservableCollection<Stop>();
             }
             else throw new ArgumentNullException();
 
             foreach (var stop in this.Stops)
             {
                 if (stop.Country == country)
-                    listRes.Add(stop);
+                    ObservableCollectionRes.Add(stop);
             }
-            return listRes.ToArray();
+            return ObservableCollectionRes.ToArray();
         }
 
         public Stop[] GetStopByRegion(string region)
         {
-            List<Stop> listRes;
+            ObservableCollection<Stop> ObservableCollectionRes;
             if (this != null)
             {
-                listRes = new List<Stop>();
+                ObservableCollectionRes = new ObservableCollection<Stop>();
             }
             else throw new ArgumentNullException();
 
             foreach (var stop in this.Stops)
             {
                 if (stop.Region == region)
-                    listRes.Add(stop);
+                    ObservableCollectionRes.Add(stop);
             }
-            return listRes.ToArray();
+            return ObservableCollectionRes.ToArray();
         }
 
-        public Stop[] FindAll(Predicate<Stop> match)
-        {
-            return Stops.FindAll(match).ToArray();
-        }
+        //public Stop[] FindAll(Predicate<Stop> match)
+        //{
+        //    return Stops.FindAll(match).ToArray();
+        //}
 
-        public override string ToString()
+        public string ToStringAllStops()
         {
             if (Stops.Count == 0)
-                return "";
+                return "Stop is absent";
 
             StringBuilder sBuilder = new StringBuilder();
             foreach (var item in Stops)
@@ -274,14 +298,11 @@ namespace OOP_1_Lab.Model
             return sBuilder.ToString();
         }
 
-        public override bool Equals(object obj)
+        public override string ToString()
         {
-            return this.ToString() == obj.ToString();
-        }
-
-        public override int GetHashCode()
-        {
-            return this.ToString().GetHashCode();
+            if (Stops.Count == 0)
+                return "";
+            return Stops[0].Name + " - " + Stops[Stops.Count - 1].Name;
         }
 
         public IEnumerator<Stop> GetEnumerator()
