@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_1_Lab.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,19 @@ namespace OOP_1_Lab
         public DriverWindow()
         {
             InitializeComponent();
+            grMainDriver.DataContext = App.DriverViewModel;
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            LogisticSystem.SaveAll();
         }
     }
 }

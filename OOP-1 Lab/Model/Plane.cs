@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OOP_1_Lab.Model
 {
+    [DataContract]
     public class Plane : Transport
     {
         public enum Types
@@ -22,7 +24,7 @@ namespace OOP_1_Lab.Model
         Types _type;
         int _carryingCapacity;
         int _peopleCapacity;
-
+        [DataMember]
         public override int CarryingCapacity
         {
             get
@@ -36,7 +38,7 @@ namespace OOP_1_Lab.Model
                     _carryingCapacity = value;
             }
         }
-
+        [DataMember]
         public override int PeopleCapacity
         {
             get
@@ -50,7 +52,7 @@ namespace OOP_1_Lab.Model
                     _peopleCapacity = value;
             }
         }
-
+        [DataMember]
         public Types Type
         {
             get

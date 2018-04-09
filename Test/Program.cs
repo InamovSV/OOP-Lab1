@@ -9,16 +9,31 @@ namespace Test
 {
     class Program
     {
+        class MyClass
+        {
+            int _n;
+
+            public int N
+            {
+                get
+                {
+                    return _n;
+                }
+
+                set
+                {
+                    if(value >= _n)
+                        _n = value;
+                }
+            }
+        }
         static void Main(string[] args)
         {
-            TransportRoute tr = new TransportRoute();
-            tr.Stops.Add(new Stop("das", "sd", "ds"));
-            tr.Stops.Add(new Stop("d", "s", "fsd"));
-            TransportRoute tr1 = new TransportRoute();
-            tr1.Stops.Add(new Stop("das", "sd", "ds"));
-            tr1.Stops.Add(new Stop("d", "s", "fsd"));
+            MyClass mc = new MyClass();
+            mc.N = 10;
+            mc.N -= 1;
 
-            Console.WriteLine(tr.Equals(tr1));
+            Console.WriteLine(mc.N);
 
             Console.ReadKey();
         }

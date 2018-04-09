@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_1_Lab.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,11 @@ namespace OOP_1_Lab
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            //Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
             MainWindow mw = new MainWindow();
-            mw.Show();
             this.Close();
+            
+            mw.Show();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -39,6 +42,11 @@ namespace OOP_1_Lab
                 groupBoxAdder.Visibility = Visibility.Visible;
             else
                 groupBoxAdder.Visibility = Visibility.Hidden;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            LogisticSystem.SaveAll();
         }
     }
 }

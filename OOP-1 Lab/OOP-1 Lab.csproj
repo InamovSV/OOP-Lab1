@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -88,15 +89,17 @@
     <Compile Include="Model\Auto.cs" />
     <Compile Include="Model\Driver.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\DriverTransportContext.cs" />
     <Compile Include="Model\LogisticSystem.cs" />
     <Compile Include="Model\Plane.cs" />
     <Compile Include="Model\Ship.cs" />
     <Compile Include="Model\Train.cs" />
     <Compile Include="Model\TransportRoute.cs" />
     <Compile Include="Model\Stop.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\IUser.cs" />
     <Compile Include="ViewModel\CustomerAdderViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\DriverRoutesViewModel.cs" />
     <Compile Include="ViewModel\DriverViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="CustomerWindow.xaml">

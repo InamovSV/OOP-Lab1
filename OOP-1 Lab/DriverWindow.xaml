@@ -3,11 +3,146 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OOP_1_Lab"
+        xmlns:local="clr-namespace:OOP_1_Lab.ViewModel"
         mc:Ignorable="d"
-        Title="DriverWindow" Height="300" Width="300"
-        WindowStartupLocation="CenterScreen">
-    <Grid>
-        
+        Title="DriverWindow" Height="357" Width="650"
+        WindowStartupLocation="CenterScreen"
+        Closing="Window_Closed">
+    <Window.Resources>
+        <local:DriverViewModel x:Key="driverVM"></local:DriverViewModel>
+    </Window.Resources>
+    <Grid Name="grMainDriver" DataContext="{Binding Source={StaticResource driverVM}}">
+        <TabControl x:Name="tabControl">
+            <TabItem Header="Profile">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="lb1" Content="Your login:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="156,52,347,175"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Width="100" Margin="299,57,190,174" Height="26"
+                        Text="{Binding CurrentDriver.Login, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Label x:Name="lb2" Content="Your password:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="156,88,313,139" Width="120"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Width="100" Margin="299,93,190,138" Height="26"
+                        Text="{Binding CurrentDriver.Password}"/>
+                    <Label x:Name="lb3" Content="Status:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="156,124,291,103" Width="142"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Width="100" Margin="299,129,190,102" Height="26"
+                        Text="{Binding CurrentDriver.CurrentRoute, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button x:Name="btnExit" Content="Log out" HorizontalAlignment="Left" Margin="527,246,0,0" VerticalAlignment="Top" Width="75" Click="btnExit_Click"
+                            Command="{Binding LogOut}"/>
+                    <Label x:Name="label1" Content="Earnings:" FontSize="16" HorizontalAlignment="Left" Margin="180,180,0,0" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Width="100" Margin="322,185,214,87" Height="26"
+                        Text="{Binding CurrentCustomer.Routs.Count, UpdateSourceTrigger=PropertyChanged}"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Transports">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label" Content="Your transports" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" />
+                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="225" Margin="10,63,0,0" VerticalAlignment="Top" Width="120"/>
+                    <Expander x:Name="expander" Header="Info" HorizontalAlignment="Left" Margin="135,63,0,0" VerticalAlignment="Top" Width="240" Height="225">
+                        <Grid Height="173">
+                            <Label x:Name="label5_Copy" Content="Model" HorizontalAlignment="Left" Margin="15,79,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label6_Copy" Content="People capacity" HorizontalAlignment="Left" Margin="15,107,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label7_Copy" Content="Carrying capacity" HorizontalAlignment="Left" Margin="15,138,0,0" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="127,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                            <TextBlock x:Name="textBox1_Copy" HorizontalAlignment="Left" Height="23" Margin="127,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58"/>
+                            <TextBlock x:Name="textBox3_Copy" HorizontalAlignment="Left" Height="23" Margin="127,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58"/>
+                            <Label x:Name="label5_Copy1" Content="Class" HorizontalAlignment="Left" Margin="15,17,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label5_Copy2" Content="Type" HorizontalAlignment="Left" Margin="17,48,0,0" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="127,53,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="77"/>
+                            <TextBlock x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="127,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="77"/>
+                        </Grid>
+                    </Expander>
+
+                    <Button x:Name="button" Content="+" HorizontalAlignment="Left" Margin="101,36,0,0" VerticalAlignment="Top" Width="24" Height="22"/>
+                    <GroupBox x:Name="groupBox" Header="New transport" HorizontalAlignment="Left" Margin="135,91,0,0" VerticalAlignment="Top" Height="197" Width="491" d:IsHidden="True">
+                        <Grid>
+                            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120"/>
+                            <Label x:Name="label2" Content="Class" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label3" FontSize="8" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="155">
+                                Add only the transport that you can use!
+                            </Label>
+                            <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="120"/>
+                            <Label x:Name="label4" Content="Type" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label5" Content="Model" HorizontalAlignment="Left" Margin="167,23,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label6" Content="People capacity" HorizontalAlignment="Left" Margin="167,58,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="label7" Content="Carrying capacity" HorizontalAlignment="Left" Margin="167,95,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="273,26,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="273,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58"/>
+                            <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="273,99,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58"/>
+
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Routes">
+                <Grid Background="#FFE5E5E5">
+                    <Expander Margin="168,54,10,10">
+                        <Grid>
+                            <Label x:Name="lb4_Copy2" Content="Distance:" HorizontalAlignment="Left" Margin="122,90,0,0" VerticalAlignment="Top" Width="61"/>
+                            <Label x:Name="lb5_Copy2" Content="Minimum experience:" HorizontalAlignment="Left" Margin="122,43,0,0" VerticalAlignment="Top" Width="129"/>
+                            <Label x:Name="lb6_Copy2" Content="Cost:" HorizontalAlignment="Left" Margin="122,142,0,0" VerticalAlignment="Top" Width="36"/>
+                            <ListBox x:Name="listBox3" HorizontalAlignment="Left" Height="157" Margin="12,41,0,0" VerticalAlignment="Top" Width="103"
+                        ItemsSource="{Binding SelectRoute.Stops}"/>
+                            <Label x:Name="label11" Content="Stops ↓" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Width="58"/>
+                            <Label x:Name="label12" Content="Target of route:" HorizontalAlignment="Left" Margin="263,10,0,0" VerticalAlignment="Top" Width="96"/>
+                            <TextBox x:Name="textBox4" VerticalScrollBarVisibility="Visible" IsReadOnly="True" Height="157" Margin="263,41,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.TargetOfRoute}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="178"/>
+                            <TextBlock x:Name="textBlock1" Width="30" HorizontalAlignment="Left" Margin="128,121,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.Distance}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="textBlock4_Copy5" Width="30" HorizontalAlignment="Left" Margin="128,173,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.Cost}" VerticalAlignment="Top"/>
+                            <TextBlock x:Name="textBlock4_Copy6" Width="30" HorizontalAlignment="Left" Margin="128,74,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.ExperienceLimit}" VerticalAlignment="Top"/>
+
+                        </Grid>
+                    </Expander>
+                    <Button x:Name="button1" Content="Start" HorizontalAlignment="Left" Margin="198,29,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="button2" Content="Abort" HorizontalAlignment="Left" Margin="362,29,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="button3" Content="End" HorizontalAlignment="Left" Margin="522,29,0,0" VerticalAlignment="Top" Width="75"/>
+                    <ListBox x:Name="listBox4" HorizontalAlignment="Left" Height="218" Margin="10,70,0,0" VerticalAlignment="Top" Width="153"
+                             ItemsSource="{Binding TransportRoutes}"/>
+                    <Label x:Name="label13" Content="Available routes" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Current route">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="lb4_Copy" Content="Distance:" HorizontalAlignment="Left" Margin="197,134,0,0" VerticalAlignment="Top" Width="61"/>
+                    <Label x:Name="lb5_Copy" Content="Minimum experience:" HorizontalAlignment="Left" Margin="197,87,0,0" VerticalAlignment="Top" Width="129"/>
+                    <Label x:Name="lb6_Copy" Content="Cost:" HorizontalAlignment="Left" Margin="197,186,0,0" VerticalAlignment="Top" Width="36"/>
+                    <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="157" Margin="37,85,0,0" VerticalAlignment="Top" Width="155"
+                            ItemsSource="{Binding SelectRoute.Stops}"/>
+                    <Label x:Name="label9" Content="Stops ↓" HorizontalAlignment="Left" Margin="37,54,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label10" Content="Target of route:" HorizontalAlignment="Left" Margin="352,54,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox2" VerticalScrollBarVisibility="Visible" IsReadOnly="True" Height="157" Margin="352,85,0,0" TextWrapping="Wrap" 
+                            Text="{Binding SelectRoute.TargetOfRoute}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274"/>
+                    <TextBlock x:Name="textBlock4" Width="30" HorizontalAlignment="Left" Margin="203,165,0,0" TextWrapping="Wrap" 
+                            Text="{Binding SelectRoute.Distance}" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock4_Copy" Width="30" HorizontalAlignment="Left" Margin="203,217,0,0" TextWrapping="Wrap" 
+                            Text="{Binding SelectRoute.Cost}" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock4_Copy1" Width="30" HorizontalAlignment="Left" Margin="203,118,0,0" TextWrapping="Wrap" 
+                            Text="{Binding SelectRoute.ExperienceLimit}" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="History">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="229" Margin="10,59,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label x:Name="label8" Content="History of your routes" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lb4_Copy1" Content="Distance:" HorizontalAlignment="Left" Margin="282,170,0,0" VerticalAlignment="Top" Width="65" Height="31"/>
+                    <Label x:Name="lb5_Copy1" Content="Minimum experience:" HorizontalAlignment="Left" Margin="282,110,0,0" VerticalAlignment="Top" Width="128" Height="31"/>
+                    <Label x:Name="lb6_Copy1" Content="Cost:" HorizontalAlignment="Left" Margin="287,229,0,0" VerticalAlignment="Top" Width="55" Height="31"/>
+                    <ListBox x:Name="listBox2_Copy" HorizontalAlignment="Left" Height="190" Margin="162,96,0,0" VerticalAlignment="Top" Width="115"
+                        ItemsSource="{Binding SelectRoute.Stops}"/>
+                    <Label x:Name="label9_Copy" Content="Stops ↓" HorizontalAlignment="Left" Margin="162,59,0,0" VerticalAlignment="Top" Height="31" Width="35"/>
+                    <Label x:Name="label10_Copy" Content="Target of route:" HorizontalAlignment="Left" Margin="415,61,0,0" VerticalAlignment="Top" Height="31" Width="102"/>
+                    <TextBox x:Name="textBox2_Copy" VerticalScrollBarVisibility="Visible" IsReadOnly="True" Height="186" Margin="415,98,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.TargetOfRoute}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204"/>
+                    <TextBlock x:Name="textBlock4_Copy2" Width="60" HorizontalAlignment="Left" Margin="287,206,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.Distance}" VerticalAlignment="Top" Height="18"/>
+                    <TextBlock x:Name="textBlock4_Copy3" Width="60" HorizontalAlignment="Left" Margin="287,265,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.Cost}" VerticalAlignment="Top" Height="19"/>
+                    <TextBlock x:Name="textBlock4_Copy4" Width="50" HorizontalAlignment="Left" Margin="287,146,0,0" TextWrapping="Wrap" 
+                        Text="{Binding SelectRoute.ExperienceLimit}" VerticalAlignment="Top" Height="19"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

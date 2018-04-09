@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace OOP_1_Lab.Model
 {
+    [DataContract]
     public class Stop : Base<Stop>
     {
         string _name;
         string _country;
         string _region;
-
+        [DataMember]
         public string Name
         {
             get
@@ -24,7 +26,7 @@ namespace OOP_1_Lab.Model
                     _name = value;
             }
         }
-
+        [DataMember]
         public string Country
         {
             get
@@ -37,7 +39,7 @@ namespace OOP_1_Lab.Model
                     _country = value;
             }
         }
-
+        [DataMember]
         public string Region
         {
             get

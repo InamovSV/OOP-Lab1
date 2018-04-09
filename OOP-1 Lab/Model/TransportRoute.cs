@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OOP_1_Lab.Model
 {
-    public class TransportRoute : IEnumerable<Stop>
+    [DataContract(IsReference = true)]
+    public class TransportRoute : Base<TransportRoute>, IEnumerable<Stop>
     {
         int? _distance;
         string _targetOfRoute;
@@ -72,7 +74,7 @@ namespace OOP_1_Lab.Model
         }
 
         #region Properties
-
+        [DataMember]
         public Driver Performer
         {
             get
@@ -81,13 +83,14 @@ namespace OOP_1_Lab.Model
             }
             set
             {
-                if (value.Experience >= ExperienceLimit)
-                    _performer = value;
-                else
-                    throw new ArgumentException("The driver do not passed the limit of experience");
+                if(value != null)
+                    if (value.Experience >= ExperienceLimit)
+                        _performer = value;
+                    else
+                        throw new ArgumentException("The driver do not passed the limit of experience");
             }
         }
-
+        [DataMember]
         public string TargetOfRoute
         {
             get
@@ -102,6 +105,7 @@ namespace OOP_1_Lab.Model
         }
 
         //To Do Если маршрут не завершен - запретить мутатор
+        [DataMember]
         public ObservableCollection<Stop> Stops { get; set; }
 
         public Stop StartStop
@@ -123,7 +127,7 @@ namespace OOP_1_Lab.Model
                 else return null;
             }
         }
-
+        [DataMember]
         public int? Distance
         {
             get
@@ -139,7 +143,7 @@ namespace OOP_1_Lab.Model
                 else throw new ArgumentException();
             }
         }
-
+        [DataMember]
         public int Cost
         {
             get
@@ -152,6 +156,7 @@ namespace OOP_1_Lab.Model
             }
         }
         //To Do продумать доступ к подтверждению
+        [DataMember]
         public bool IsConfirm
         {
             get
@@ -168,7 +173,7 @@ namespace OOP_1_Lab.Model
                 _isConfirm = value;
             }
         }
-
+        [DataMember]
         public bool IsStart
         {
             get
@@ -181,10 +186,13 @@ namespace OOP_1_Lab.Model
                 if (IsEnd && value == false)
                     throw new ArgumentException("Do not right argument's logic");
                 else
-                    IsStart = value;
+                {
+                    _isStart = value;
+                }
+                    
             }
         }
-
+        [DataMember]
         public bool IsEnd
         {
             get
@@ -201,7 +209,7 @@ namespace OOP_1_Lab.Model
 
             }
         }
-
+        [DataMember]
         public int ExperienceLimit
         {
             get
@@ -214,7 +222,7 @@ namespace OOP_1_Lab.Model
                 _experienceLimit = value;
             }
         }
-
+        [DataMember]
         public Customer Owner
         {
             get
@@ -232,51 +240,40 @@ namespace OOP_1_Lab.Model
         #endregion
 
         #region Methods
-        public void Add(Stop stop)
-        {
-            if (stop != null)
-                Stops.Add(stop);
-            else throw new ArgumentNullException();
-        }
 
-        public void Remove(Stop stop)
-        {
-            Stops.Remove(stop);
-        }
+        //public Stop[] GetStopByCountry(string country)
+        //{
+        //    ObservableCollection<Stop> ObservableCollectionRes;
+        //    if (country != null)
+        //    {
+        //        ObservableCollectionRes = new ObservableCollection<Stop>();
+        //    }
+        //    else throw new ArgumentNullException();
 
-        public Stop[] GetStopByCountry(string country)
-        {
-            ObservableCollection<Stop> ObservableCollectionRes;
-            if (country != null)
-            {
-                ObservableCollectionRes = new ObservableCollection<Stop>();
-            }
-            else throw new ArgumentNullException();
+        //    foreach (var stop in this.Stops)
+        //    {
+        //        if (stop.Country == country)
+        //            ObservableCollectionRes.Add(stop);
+        //    }
+        //    return ObservableCollectionRes.ToArray();
+        //}
 
-            foreach (var stop in this.Stops)
-            {
-                if (stop.Country == country)
-                    ObservableCollectionRes.Add(stop);
-            }
-            return ObservableCollectionRes.ToArray();
-        }
+        //public Stop[] GetStopByRegion(string region)
+        //{
+        //    ObservableCollection<Stop> ObservableCollectionRes;
+        //    if (this != null)
+        //    {
+        //        ObservableCollectionRes = new ObservableCollection<Stop>();
+        //    }
+        //    else throw new ArgumentNullException();
 
-        public Stop[] GetStopByRegion(string region)
-        {
-            ObservableCollection<Stop> ObservableCollectionRes;
-            if (this != null)
-            {
-                ObservableCollectionRes = new ObservableCollection<Stop>();
-            }
-            else throw new ArgumentNullException();
-
-            foreach (var stop in this.Stops)
-            {
-                if (stop.Region == region)
-                    ObservableCollectionRes.Add(stop);
-            }
-            return ObservableCollectionRes.ToArray();
-        }
+        //    foreach (var stop in this.Stops)
+        //    {
+        //        if (stop.Region == region)
+        //            ObservableCollectionRes.Add(stop);
+        //    }
+        //    return ObservableCollectionRes.ToArray();
+        //}
 
         //public Stop[] FindAll(Predicate<Stop> match)
         //{

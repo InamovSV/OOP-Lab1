@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace OOP_1_Lab.Model
 {
+    [DataContract]
     public class Auto : Transport
     {
         public enum Types
@@ -25,7 +27,7 @@ namespace OOP_1_Lab.Model
         Types _type;
         int _carryingCapacity;
         int _peopleCapacity;
-
+        [DataMember]
         public override int CarryingCapacity
         {
             get
@@ -39,7 +41,7 @@ namespace OOP_1_Lab.Model
                     _carryingCapacity = value;
             }
         }
-
+        [DataMember]
         public override int PeopleCapacity
         {
             get
@@ -53,7 +55,7 @@ namespace OOP_1_Lab.Model
                     _peopleCapacity = value;
             }
         }
-
+        [DataMember]
         public Types Type
         {
             get
@@ -68,7 +70,7 @@ namespace OOP_1_Lab.Model
 
         public override string ToString()
         {
-            return string.Format("Type: {0}\nModel: {1}\nPeopleCapacity: {2}\nCarryingCapacity: {3}", Type, Model, PeopleCapacity, CarryingCapacity);
+            return string.Format("Type: {0}\nModel: {1}\nPC: {2}\nCC: {3}", Type, Model, PeopleCapacity, CarryingCapacity);
         }
 
         public override bool Equals(object obj)

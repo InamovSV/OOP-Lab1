@@ -13,26 +13,17 @@ namespace OOP_1_Lab.Model
     {
         static LogisticSystem()
         {
-            Transports = new ObservableCollection<Transport>();
-            TransportRouts = new ObservableCollection<TransportRoute>();
-            Drivers = new ObservableCollection<Driver>();
-            Customers = new ObservableCollection<Customer>();
-        }
-        static ObservableCollection<Customer> _customer;
-        static ObservableCollection<Driver> _drivers;
-        static ObservableCollection<Transport> _transports;
-        static ObservableCollection<TransportRoute> _transportRouts;
 
+        }
         public static ObservableCollection<Customer> Customers
         {
             get
             {
-                return _customer;
-            }
-
-            set
-            {
-                _customer = value;
+                ObservableCollection<Customer> listRes = new ObservableCollection<Customer>();
+                foreach (var item in Customer.Items.Values)
+                    if(item is Customer)
+                        listRes.Add(item);
+                return listRes;
             }
         }
 
@@ -40,12 +31,11 @@ namespace OOP_1_Lab.Model
         {
             get
             {
-                return _drivers;
-            }
-
-            set
-            {
-                _drivers = value;
+                ObservableCollection<Driver> listRes = new ObservableCollection<Driver>();
+                foreach (var item in Driver.Items.Values)
+                    if(item is Driver)
+                        listRes.Add(item);
+                return listRes;
             }
         }
 
@@ -53,12 +43,10 @@ namespace OOP_1_Lab.Model
         {
             get
             {
-                return _transports;
-            }
-
-            private set
-            {
-                _transports = value;
+                ObservableCollection<Transport> listRes = new ObservableCollection<Transport>();
+                foreach (var item in Transport.Items.Values)
+                    listRes.Add(item);
+                return listRes;
             }
         }
 
@@ -66,12 +54,10 @@ namespace OOP_1_Lab.Model
         {
             get
             {
-                return _transportRouts;
-            }
-
-            private set
-            {
-                _transportRouts = value;
+                ObservableCollection<TransportRoute> listRes = new ObservableCollection<TransportRoute>();
+                foreach (var item in TransportRoute.Items.Values)
+                    listRes.Add(item);
+                return listRes;
             }
         }
 
@@ -80,12 +66,28 @@ namespace OOP_1_Lab.Model
         #region Serialization
         public static void SaveAll()
         {
-
+            Customer.Save();
+            Driver.Save();
+            DriverTransportContext.Save();
+            TransportRoute.Save();
+            Auto.Save();
+            Plane.Save();
+            Ship.Save();
+            Train.Save();
+            Stop.Save();
         }
 
         public static void LoadAll()
         {
-
+            Customer.Load();
+            Driver.Load();
+            DriverTransportContext.Load();
+            TransportRoute.Load();
+            Auto.Load();
+            Plane.Load();
+            Ship.Load();
+            Train.Load();
+            Stop.Load();
         }
         #endregion
 
@@ -102,8 +104,8 @@ namespace OOP_1_Lab.Model
                         break;
                 }
                 if (!isContains)
-                    Customers.Add(new Customer(name, login, password));
-                else throw new Exception("User with such login already exist");
+                    new Customer(name, login, password);
+                else throw new Exception("IUser with such login already exist");
             }
             else
                 throw new ArgumentException("Invalid term in the expression");
@@ -122,9 +124,9 @@ namespace OOP_1_Lab.Model
                 }
                 if (!isContains)
                 {
-                    Drivers.Add(new Driver(firstName, lastName, login, password));
+                    new Driver(firstName, lastName, login, password);
                 }
-                else throw new Exception("User with such login already exist");
+                else throw new Exception("IUser with such login already exist");
             }
             else
                 throw new ArgumentException("Invalid term in the expression");

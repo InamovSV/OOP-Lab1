@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using OOP_1_Lab.ViewModel;
+using OOP_1_Lab.Model;
 
 namespace OOP_1_Lab
 {
@@ -25,6 +26,7 @@ namespace OOP_1_Lab
             CustomerViewModel = new CustomerViewModel();
             DriverViewModel = new DriverViewModel();
             CustomerAdderViewModel = new CustomerAdderViewModel();
+            LogisticSystem.LoadAll();
         }
         System.Threading.Mutex mutex;
         private void Application_Startup(object sender, StartupEventArgs e)

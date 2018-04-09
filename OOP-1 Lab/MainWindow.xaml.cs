@@ -28,7 +28,9 @@ namespace OOP_1_Lab
     {
         public MainWindow()
         {
+
             InitializeComponent();
+
             this.Height = 210;
             DataContext = App.MainWindowViewModel;
             Application.Current.ShutdownMode = ShutdownMode.OnLastWindowClose;
@@ -88,5 +90,7 @@ namespace OOP_1_Lab
             }
 
         }
+
+
     }
 }

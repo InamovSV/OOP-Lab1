@@ -173,6 +173,9 @@ namespace OOP_1_Lab.ViewModel
 
         #region Commands
 
+        bool isDriver;
+        bool isCustomer;
+
         RelayCommand _signUp;
         public RelayCommand SignUp
         {
@@ -182,6 +185,8 @@ namespace OOP_1_Lab.ViewModel
                     _signUp = new RelayCommand(() =>
                     {
                         VisibilityChose = Visibility.Visible;
+                        isCustomer = false;
+                        isDriver = false;
                     });
                 return _signUp;
             }
@@ -198,6 +203,7 @@ namespace OOP_1_Lab.ViewModel
                         FirstNameLabel = "Name";
                         VisibilityNames = Visibility.Visible;
                         VisibilityLastName = Visibility.Hidden;
+                        isCustomer = true;
                     });
                 return _signUpCustomer;
             }
@@ -214,6 +220,7 @@ namespace OOP_1_Lab.ViewModel
                         FirstNameLabel = "First name";
                         VisibilityNames = Visibility.Visible;
                         VisibilityLastName = Visibility.Visible;
+                        isDriver = true;
                     });
                 return _signUpDriver;
             }
@@ -229,13 +236,13 @@ namespace OOP_1_Lab.ViewModel
                     {
                         try
                         {
-                            if (FirstName != null && LastName == null)
+                            if (isCustomer)
                             {
                                 LogisticSystem.AddCustomer(FirstName, Login, Password);
                                 App.CustomerViewModel.CurrentCustomer = LogisticSystem.GetCustomer(Login, Password);
                                 FirstName = null;
                             }
-                            else if (FirstName != null && LastName != null)
+                            else if (isDriver)
                             {
                                 LogisticSystem.AddDriver(FirstName, LastName, Login, Password);
                                 App.DriverViewModel.CurrentDriver = LogisticSystem.GetDriver(Login, Password);

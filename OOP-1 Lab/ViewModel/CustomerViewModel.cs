@@ -16,7 +16,6 @@ namespace OOP_1_Lab.ViewModel
     {
         public CustomerViewModel()
         {
-
         }
         #region Properties
         Customer _currentCustomer;
@@ -33,15 +32,11 @@ namespace OOP_1_Lab.ViewModel
             }
         }
 
-        ObservableCollection<Transport> _transports;
         public ObservableCollection<Transport> Transports
         {
             get
             {
-                if (_transports == null)
-                    _transports = CurrentCustomer.Transports;
-
-                return _transports;
+                return LogisticSystem.Transports;
             }
         }
 
@@ -117,21 +112,43 @@ namespace OOP_1_Lab.ViewModel
         }
         #endregion
 
-
+        //To Do при завершении через log out теряются данные. Исправить; 
         #region Commands
-        RelayCommand _goOut;
-        public RelayCommand GoOut
+        RelayCommand _logOut;
+        public RelayCommand LogOut
         {
             get
             {
-                if (_goOut == null)
-                    _goOut = new RelayCommand(() =>
+                if (_logOut == null)
+                    _logOut = new RelayCommand(() =>
                     {
                         CurrentCustomer = null;
                     });
-                return _goOut;
+                return _logOut;
             }
         }
+
+        RelayCommand _confirm;
+        public RelayCommand Confirm
+        {
+            get
+            {
+                if (_confirm == null)
+                    _confirm = new RelayCommand(() =>
+                    {
+                        SelectRoute.Performer.Pay(SelectRoute.Cost);
+                        CurrentCustomer.Routs.Remove(SelectRoute);
+                    });
+                return _confirm;
+            }
+
+            set
+            {
+                _confirm = value;
+            }
+        }
+        
+        
         #endregion
  
     }

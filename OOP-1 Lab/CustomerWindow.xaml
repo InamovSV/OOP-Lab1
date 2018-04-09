@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_1_Lab.ViewModel"
         mc:Ignorable="d"
-        Title="CustomerWindow" Height="369" Width="692">
+        Title="CustomerWindow" Height="369" Width="692" 
+        Closing="Window_Closed">
     <Window.Resources>
         <local:CustomerViewModel x:Key="customerVM"></local:CustomerViewModel>
         <local:CustomerAdderViewModel x:Key="customerAdderVM"></local:CustomerAdderViewModel>
@@ -23,8 +24,8 @@
                     <Label x:Name="lb3" Content="Number of routes:" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="131,113,292,119" Width="142"/>
                     <TextBlock HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Width="100" Margin="273,118,192,119" Height="26"
                                Text="{Binding CurrentCustomer.Routs.Count, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Button x:Name="btnExit" Content="Go out" HorizontalAlignment="Left" Margin="480,233,0,0" VerticalAlignment="Top" Width="75"
-                            Command="" Click="btnExit_Click"/>
+                    <Button x:Name="btnExit" Content="Log out" HorizontalAlignment="Left" Margin="480,233,0,0" VerticalAlignment="Top" Width="75"
+                            Command="{Binding LogOut}" Click="btnExit_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Create route">
@@ -102,17 +103,17 @@
                                        Text="{Binding SelectRoute.ExperienceLimit}" VerticalAlignment="Top"/>
                         </Grid>
                     </Expander>
-                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="258,172,0,0" TextWrapping="Wrap" 
+                    <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="271,172,0,0" TextWrapping="Wrap" 
                                Text="{Binding SelectRoute.Performer.FirstName}" VerticalAlignment="Top"/>
-                    <Label x:Name="label4" Content="First name:" HorizontalAlignment="Left" Margin="184,167,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label6" Content="Last name:" HorizontalAlignment="Left" Margin="184,193,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="tbFN" HorizontalAlignment="Left" Margin="258,198,0,0" TextWrapping="Wrap" 
+                    <Label x:Name="label4" Content="First name:" HorizontalAlignment="Left" Margin="197,167,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label6" Content="Last name:" HorizontalAlignment="Left" Margin="197,193,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="tbFN" HorizontalAlignment="Left" Margin="271,198,0,0" TextWrapping="Wrap" 
                                Text="{Binding SelectRoute.Performer.LastName}" VerticalAlignment="Top"/>
-                    <Label x:Name="label7" Content="Experience:" HorizontalAlignment="Left" Margin="186,224,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="label8" Content="Phone:" HorizontalAlignment="Left" Margin="186,250,0,0" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="258,229,0,0" TextWrapping="Wrap" 
+                    <Label x:Name="label7" Content="Experience:" HorizontalAlignment="Left" Margin="199,224,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label8" Content="Phone:" HorizontalAlignment="Left" Margin="199,250,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="271,229,0,0" TextWrapping="Wrap" 
                                Text="{Binding SelectRoute.Performer.Experience}" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="258,255,0,0" TextWrapping="Wrap" 
+                    <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="271,255,0,0" TextWrapping="Wrap" 
                                Text="{Binding SelectRoute.Performer.PhoneNumber}" VerticalAlignment="Top"/>
 
 

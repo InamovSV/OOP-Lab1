@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 
 namespace OOP_1_Lab.Model
 {
-    public abstract class Transport //: Base<Transport>
+    [DataContract]
+    public abstract class Transport : Base<Transport>
     {
+        string _model;
+
         public Transport(string model, int carryingCapacity, int peopleCapacity)
         {
             Model = model;
             CarryingCapacity = carryingCapacity;
             PeopleCapacity = peopleCapacity;
-            _drivers = new ObservableCollection<Driver>();
-            //LogisticSystem.Transports.Add(this);
         }
 
-        string _model;
-        ObservableCollection<Driver> _drivers;
-
+        [DataMember]
         public string Model
         {
             get
@@ -35,16 +35,20 @@ namespace OOP_1_Lab.Model
         {
             get
             {
-                return _drivers;
+                ObservableCollection<Driver> listDr = new ObservableCollection<Driver>();
+                foreach (var item in DriverTransportContext.Items.Values)
+                    if (item.Transport == this)
+                        listDr.Add(item.Driver);
+                return listDr;
             }
         }
 
         //public TransportRoute Route { get; set; }
-
+        [DataMember]
         abstract public int CarryingCapacity { get; set; }
-
+        [DataMember]
         abstract public int PeopleCapacity { get; set; }
-
+        [DataMember]
         public bool IsOnWay { get; set; }
 
         //public static List<Transport> GetTransportsWithOneType(Transport.Types type)
